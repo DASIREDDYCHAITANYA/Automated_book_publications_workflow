@@ -35,6 +35,7 @@ Automated_book_publications_workflow/
 │   ├── chroma_handler.py       # Version management using ChromaDB
 │   └── rl_search.py            # Reinforcement learning-based retrieval
 ├── main.py                     # Pipeline entry point
+|-req.txt    
 ├── ppo_trainer.py              # PPO trainer for feedback learning
 ├── run_review_streamlit.py     # Run Streamlit interface
 └── README.md                   # This file
