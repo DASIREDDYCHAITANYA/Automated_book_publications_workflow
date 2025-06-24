@@ -27,7 +27,7 @@ Automated_book_publications_workflow/
 ├── run_review_streamlit.py     # Run Streamlit interface
 └── README.md                   # This file
 </pre>
-
+---
 
 ## Component-wise Explanation
 
@@ -42,8 +42,8 @@ This workflow is modular, with each component playing a critical role in the aut
 
 This module leverages powerful Large Language Models (LLMs) to transform and refine content.
 
-* **`ai_writer.py`**: Takes raw chapters as input and employs LLMs (e.g., Google Gemini or OpenAI's GPT-4) to "spin" or rewrite the content, adapting it to a new style, tone, or specific requirements.
-* **`ai_reviewer.py`**: Performs an additional layer of AI-driven refinement, focusing on grammar correction, style enhancements, factual consistency checks, and overall content improvement on the AI-written output.
+* **`ai_writer.py`**: Takes raw chapters as input and employs an LLM (specifically, **Phi-2 LLM**) to "spin" or rewrite the content, adapting it to a new style, tone, or specific requirements.
+* **`ai_reviewer.py`**: Performs an additional layer of AI-driven refinement, focusing on grammar correction, style enhancements, factual consistency checks, and overall content improvement on the AI-written output. This also utilizes the **Phi-2 LLM**.
 * **`human_interface.py`**: Provides a crucial bridge for human interaction. It allows human reviewers to interact with the content, offering functionalities to approve, edit, or add comments. This interface can be accessed via command-line prompts or an optional web UI built with Streamlit.
 
 ### 3. 🧑‍💼 Human-in-the-Loop
@@ -74,7 +74,7 @@ This project leverages the following key technologies to achieve its automated w
 
 * **Python**: The primary development language for the entire system.
 * **Playwright**: Utilized for reliable web scraping and capturing full-page screenshots.
-* **LLM (Large Language Models)**: The AI engine for content "spinning" (rewriting), detailed reviewing, and enhancement.
+* **LLM (Large Language Models)**: The AI engine for content "spinning" (rewriting), detailed reviewing, and enhancement. **Notably, Phi-2 LLM is used to avoid external API requests, allowing for local inference.**
 * **ChromaDB**: Serves as the vector database for efficient content versioning and storage.
 * **RL Search Algorithm**: Powers the intelligent and consistent retrieval of published content from ChromaDB.
 
@@ -105,7 +105,8 @@ To set up the project locally, follow these steps:
     *If `requirements.txt` is not provided, you would need to install individual libraries like `playwright`, `chromadb`, `transformers` (for LLM interactions if not using direct API calls), `streamlit`, etc.*
 
 4.  **Set up API Keys:**
-    * You will need API keys for the chosen Large Language Models (e.g., Google Gemini API key or OpenAI API key). Store these securely, ideally as environment variables.
+    * If using any external APIs (e.g., for certain LLM functionalities not handled by Phi-2), you will need corresponding API keys. Store these securely, ideally as environment variables.
+    * **For Phi-2 LLM**: Ensure you have the necessary model files and local inference setup configured as per Phi-2's documentation.
 
 5.  **Install Playwright browser executables:**
     ```bash
@@ -119,7 +120,7 @@ To set up the project locally, follow these steps:
 The `main.py` script orchestrates the entire workflow, demonstrating a seamless process for publishing a single chapter, for example, "The Gates of Morning/Book 1/Chapter 1" from Wikisource:
 
 1.  **Scraping & Screenshots**: The system first fetches the content and saves full-page screenshots from the specified Wikisource URL (e.g., `https://en.wikisource.org/wiki/The_Gates_of_Morning/Book_1/Chapter_1`). This step uses Playwright to accurately extract the raw text and capture visual records.
-2.  **AI Writing & Review**: The scraped chapter is then fed into the AI pipeline. An **AI Writer** (powered by an LLM like Gemini) "spins" or rewrites the chapter into a desired style or tone. Subsequently, an **AI Reviewer** (another LLM) refines this output for grammar, style, and content quality.
+2.  **AI Writing & Review**: The scraped chapter is then fed into the AI pipeline. An **AI Writer** (powered by **Phi-2 LLM**) "spins" or rewrites the chapter into a desired style or tone. Subsequently, an **AI Reviewer** (also using **Phi-2 LLM**) refines this output for grammar, style, and content quality.
 3.  **Human-in-the-Loop**: The processed content enters a crucial multi-stage human review. This involves **multiple iterations with human input** from writers, reviewers, and editors, ensuring the content meets human quality standards before finalization.
 4.  **Agentic API**: Throughout these stages, the **Agentic API** ensures a seamless and standardized content flow between the various AI agents and human interaction points, maintaining data integrity and pipeline efficiency.
 5.  **Versioning & Consistency**: Once the chapter is finalized through all AI and human review stages, its **final version is saved**. This content, along with its metadata, is stored in **ChromaDB**. A **Reinforcement Learning (RL) Search Algorithm** is then used to enable consistent and intelligent retrieval of this published content, ensuring that the best and most relevant version is always accessible.
@@ -128,3 +129,4 @@ To initiate the workflow:
 
 ```bash
 python main.py
+
