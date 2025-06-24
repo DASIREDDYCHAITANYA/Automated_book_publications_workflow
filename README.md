@@ -1,4 +1,3 @@
-# Automated_book_pub_workflow
 # Automated Book Publications Workflow
 
 ## Project Overview
