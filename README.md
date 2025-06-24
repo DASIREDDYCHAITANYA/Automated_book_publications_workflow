@@ -6,7 +6,27 @@ The "Automated Book Publications Workflow" is an innovative project designed to 
 
 ---
 ## Porject Structure
-<pre> ``` Automated_book_publications_workflow/ ├── AI_pipeline/ │ ├── ai_writer.py # Rewriting with LLM │ ├── ai_reviewer.py # Grammar/quality checker │ └── human_interface.py # Feedback mechanism (Streamlit, etc.) ├── chromadb/ # ChromaDB vector store (persisted files) ├── data/ # Raw, rewritten, and approved content ├── human_feedback/ # Human ratings/comments logs ├── scraping/ │ ├── scraper.py # Scrape Wikisource or other text │ └── screenshot.py # (Optional) Visual snapshot ├── utils/ # Common utility functions ├── versioning/ │ ├── chroma_handler.py # Version management using ChromaDB │ └── rl_search.py # Reinforcement learning-based retrieval ├── main.py # Pipeline entry point ├── ppo_trainer.py # PPO trainer for feedback learning ├── run_review_streamlit.py # Run Streamlit interface └── README.md # This file ``` </pre>
+<pre>
+Automated_book_publications_workflow/
+├── AI_pipeline/
+│   ├── ai_writer.py            # Rewriting with LLM
+│   ├── ai_reviewer.py          # Grammar/quality checker
+│   └── human_interface.py      # Feedback mechanism (Streamlit, etc.)
+├── chromadb/                   # ChromaDB vector store (persisted files)
+├── data/                       # Raw, rewritten, and approved content
+├── human_feedback/             # Human ratings/comments logs
+├── scraping/
+│   ├── scraper.py              # Scrape Wikisource or other text
+│   └── screenshot.py           # (Optional) Visual snapshot
+├── utils/                      # Common utility functions
+├── versioning/
+│   ├── chroma_handler.py       # Version management using ChromaDB
+│   └── rl_search.py            # Reinforcement learning-based retrieval
+├── main.py                     # Pipeline entry point
+├── ppo_trainer.py              # PPO trainer for feedback learning
+├── run_review_streamlit.py     # Run Streamlit interface
+└── README.md                   # This file
+</pre>
 
 
 ## Component-wise Explanation
