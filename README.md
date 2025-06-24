@@ -1,11 +1,23 @@
-# Automated Book Publications Workflow
+# 📚 Automated Book Publications Workflow
 
-## Project Overview
-
-The "Automated Book Publications Workflow" is an innovative project designed to **streamline and enhance the book publication process**. It achieves this by intelligently integrating **Artificial Intelligence**, **human feedback**, and **robust content versioning**. This system automates various stages, from initial content acquisition to AI-driven rewriting and review, all while ensuring stringent quality control through human-in-the-loop interventions and maintaining a comprehensive version history of all content.
+A modular pipeline to rewrite public domain books using AI, enable human review, and manage versioning with ChromaDB and reinforcement learning feedback.
 
 ---
-## Porject Structure
+
+## 📦 Features
+
+- 📖 Web scraping of books from sources like Wikisource
+- ✍️ AI rewriting of content using LLMs
+- ✅ AI-powered grammar and quality checks
+- 🧠 Human-in-the-loop review via Streamlit
+- 🧾 Content versioning and retrieval with ChromaDB
+- 🤖 Reinforcement Learning loop using PPO
+- 🔄 Exportable rewritten content for digital publication
+
+---
+
+## 📁 Project Structure
+
 <pre>
 Automated_book_publications_workflow/
 ├── AI_pipeline/
