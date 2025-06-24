@@ -8,42 +8,24 @@ The "Automated Book Publications Workflow" is an innovative project designed to 
 ## Porject Structure
 Automated_book_publications_workflow/
 ├── AI_pipeline/
-
-│   ├── ai_writer.py
-
-│   ├── ai_reviewer.py
-
-│   └── human_interface.py
-
-├── chromadb/         # Database persistence for ChromaDB (actual files depend on ChromaDB setup)
-
-├── data/             # Directory for storing intermediate or final content files
-
-├── human_feedback/   # Likely stores logs or specific human feedback data
-
+│   ├── ai_writer.py            # Rewriting with LLM
+│   ├── ai_reviewer.py          # Grammar/quality checker
+│   └── human_interface.py      # Feedback mechanism (Streamlit, etc.)
+├── chromadb/                   # ChromaDB vector store (persisted files)
+├── data/                       # Raw, rewritten, and approved content
+├── human_feedback/             # Human ratings/comments logs
 ├── scraping/
+│   ├── scraper.py              # Scrape Wikisource or other text
+│   └── screenshot.py           # (Optional) Visual snapshot
+├── utils/                      # Common utility functions
+├── versioning/
+│   ├── chroma_handler.py       # Version management using ChromaDB
+│   └── rl_search.py            # Reinforcement learning-based retrieval
+├── main.py                     # Pipeline entry point
+├── ppo_trainer.py              # PPO trainer for feedback learning
+├── run_review_streamlit.py     # Run Streamlit interface
+└── README.md                   # This file
 
-│   ├── scraper.py
-
-│   └── screenshot.py
-
-├── utils/            # Utility functions
-
-├── versioning/       # (Based on the description, this folder might contain the following)
-
-│   ├── chroma_handler.py
-
-│   └── rl_search.py
-
-├── .DS_Store         # macOS specific file
-
-├── README.md         # This file
-
-├── main.py           # Orchestrates the entire workflow
-
-├── ppo_trainer.py    # Likely related to Reinforcement Learning (PPO algorithm)
-
-└── run_review_streamlit.py # Script to run the Streamlit human review interface
 
 ## Component-wise Explanation
 
