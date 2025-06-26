@@ -37,6 +37,9 @@ Automated_book_publications_workflow/
 ├── main.py                     # Pipeline entry point
 |-req.txt    
 ├── ppo_trainer.py              # PPO trainer for feedback learning
+├── PPO_reranker.py
+├──ppo_model.pt
+├── Revied_verions.txt        #outptus of PPO predtictions    
 ├── run_review_streamlit.py     # Run Streamlit interface
 └── README.md                   # This file
 </pre>
