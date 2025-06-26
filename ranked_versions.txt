@@ -1,0 +1,5 @@
+🔢 Ranked Chapter Versions:
+1. chapter1_v4 (editor by Human) - Score: 5.491
+2. chapter1_v3 (reviewer by LLM Reviewer) - Score: 3.249
+3. chapter1_v2 (writer by AI Writer) - Score: 1.007
+4. chapter1_v1 (scraper by Playwright) - Score: 0.751
